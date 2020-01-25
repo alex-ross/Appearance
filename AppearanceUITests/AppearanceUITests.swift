@@ -1,6 +1,6 @@
 //
-//  ApperanceUITests.swift
-//  ApperanceUITests
+//  AppearanceUITests.swift
+//  AppearanceUITests
 //
 //  Created by Alexander Ross on 2020-01-25.
 //  Copyright © 2020 Alexander Ross. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ApperanceUITests: XCTestCase {
+class AppearanceUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

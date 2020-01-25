@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Apperance
+//  Appearance
 //
 //  Created by Alexander Ross on 2020-01-25.
 //  Copyright © 2020 Alexander Ross. All rights reserved.
