@@ -6,6 +6,9 @@ import SwiftUI
 // TODO: Listen when color scheme changes
 // TODO: Allow to add script to execute when color scheme is changed
 // TODO: Add option to quit app
+// TODO: Improve logotype
+// TODO: Add localization
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
