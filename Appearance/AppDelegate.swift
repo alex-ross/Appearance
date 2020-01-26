@@ -2,6 +2,10 @@ import Cocoa
 import SwiftUI
 import os.log
 
+// TODO: Start when computer boots
+// TODO: Listen when color scheme changes
+// TODO: Allow to add script to execute when color scheme is changed
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
