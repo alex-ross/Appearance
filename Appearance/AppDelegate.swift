@@ -76,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                        modifierFlags: NSEvent.ModifierFlags(rawValue: 0),
                                        timestamp: 0,
                                        windowNumber: w.windowNumber,
-                                       context: w.graphicsContext,
+                                       context: nil,
                                        eventNumber: 0,
                                        clickCount: 1,
                                        pressure: 0)!
