@@ -1,32 +1,46 @@
 import Cocoa
-import SwiftUI
+import LaunchAtLogin
 import os.log
+import SwiftUI
 
-// TODO: Start when computer boots
 // TODO: Listen when color scheme changes
 // TODO: Allow to add script to execute when color scheme is changed
+// TODO: Add option to quit app
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
     var window: NSWindow?
     var statusItem: NSStatusItem?
     lazy var appMenu: NSMenu = {
-        let toggleColorSceme = NSMenuItem(title: "Toggle color scheme",
-                                          action: #selector(toggleDarkMode),
-                                          keyEquivalent: "")
+        let toggleColorSceme = NSMenuItem(
+            title: "Toggle color scheme",
+            action: #selector(toggleDarkMode),
+            keyEquivalent: ""
+        )
+
+        let toggleLaunchAtLogin = NSMenuItem(
+            title: "Launch at login",
+            action: #selector(launchAtLogin(sender:)),
+            keyEquivalent: ""
+        )
+
+        if LaunchAtLogin.isEnabled {
+            toggleLaunchAtLogin.state = .on
+        }
 
         let menu = NSMenu(title: "Appearance")
         menu.addItem(toggleColorSceme)
+        menu.addItem(.separator())
+        menu.addItem(toggleLaunchAtLogin)
 
         return menu
     }()
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    func applicationDidFinishLaunching(_: Notification) {
         statusItem = makeStatusItem()
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
+    func applicationWillTerminate(_: Notification) {
         // Insert code here to tear down your application
     }
 
@@ -58,7 +72,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false)
+            backing: .buffered, defer: false
+        )
         window?.center()
         window?.setFrameAutosaveName("Main Window")
         window?.contentView = NSHostingView(rootView: contentView)
@@ -101,6 +116,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    @objc func launchAtLogin(sender: NSMenuItem) {
+        LaunchAtLogin.isEnabled = !LaunchAtLogin.isEnabled
 
-
+        if LaunchAtLogin.isEnabled {
+            sender.state = .on
+        } else {
+            sender.state = .off
+        }
+    }
 }

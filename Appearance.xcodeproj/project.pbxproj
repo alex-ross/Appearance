@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		915EB19723DE30D400207556 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; };
+		915EB19823DE30D400207556 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		917C25A123DE34330096E6E9 /* LaunchAtLogin.feature in Resources */ = {isa = PBXBuildFile; fileRef = 917C25A023DE34330096E6E9 /* LaunchAtLogin.feature */; };
 		91AF302F23DCC16C00D394BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF302E23DCC16C00D394BA /* AppDelegate.swift */; };
 		91AF303123DCC16C00D394BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF303023DCC16C00D394BA /* ContentView.swift */; };
 		91AF303323DCC16F00D394BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AF303223DCC16F00D394BA /* Assets.xcassets */; };
@@ -33,7 +36,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		915EB19923DE30D400207556 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				915EB19823DE30D400207556 /* LaunchAtLogin.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		915EB19623DE30D400207556 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
+		917C25A023DE34330096E6E9 /* LaunchAtLogin.feature */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LaunchAtLogin.feature; sourceTree = "<group>"; };
 		91AF302B23DCC16C00D394BA /* Appearance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appearance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AF302E23DCC16C00D394BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91AF303023DCC16C00D394BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915EB19723DE30D400207556 /* LaunchAtLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,13 +95,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		915EB19523DE30D400207556 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				915EB19623DE30D400207556 /* LaunchAtLogin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		917C259F23DE34140096E6E9 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				917C25A023DE34330096E6E9 /* LaunchAtLogin.feature */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		91AF302223DCC16C00D394BA = {
 			isa = PBXGroup;
 			children = (
+				917C259F23DE34140096E6E9 /* Features */,
 				91AF302D23DCC16C00D394BA /* Appearance */,
 				91AF304323DCC17000D394BA /* AppearanceTests */,
 				91AF304E23DCC17000D394BA /* AppearanceUITests */,
 				91AF302C23DCC16C00D394BA /* Products */,
+				915EB19523DE30D400207556 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,6 +183,9 @@
 				91AF302723DCC16C00D394BA /* Sources */,
 				91AF302823DCC16C00D394BA /* Frameworks */,
 				91AF302923DCC16C00D394BA /* Resources */,
+				915EB19923DE30D400207556 /* Embed Frameworks */,
+				915EB19A23DE30F200207556 /* ShellScript */,
+				915EB19B23DE31AC00207556 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -240,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91AF303923DCC16F00D394BA /* Main.storyboard in Resources */,
+				917C25A123DE34330096E6E9 /* LaunchAtLogin.feature in Resources */,
 				91AF303623DCC16F00D394BA /* Preview Assets.xcassets in Resources */,
 				91AF303323DCC16F00D394BA /* Assets.xcassets in Resources */,
 			);
@@ -260,6 +302,43 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		915EB19A23DE30F200207556 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		915EB19B23DE31AC00207556 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		91AF302723DCC16C00D394BA /* Sources */ = {
@@ -438,6 +517,10 @@
 				DEVELOPMENT_TEAM = 7RS8ZRKD6A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Appearance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,6 +544,10 @@
 				DEVELOPMENT_TEAM = 7RS8ZRKD6A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Appearance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
