@@ -5,10 +5,8 @@ import SwiftUI
 
 // TODO: Listen when color scheme changes
 // TODO: Allow to add script to execute when color scheme is changed
-// TODO: Add option to quit app
 // TODO: Improve logotype
 // TODO: Add localization
-
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -27,6 +25,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             keyEquivalent: ""
         )
 
+        let terminator = NSMenuItem(
+            title: "Quit",
+            action: #selector(quit(sender:)),
+            keyEquivalent: ""
+        )
+
         if LaunchAtLogin.isEnabled {
             toggleLaunchAtLogin.state = .on
         }
@@ -35,6 +39,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(toggleColorSceme)
         menu.addItem(.separator())
         menu.addItem(toggleLaunchAtLogin)
+        menu.addItem(.separator())
+        menu.addItem(terminator)
 
         return menu
     }()
@@ -127,5 +133,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             sender.state = .off
         }
+    }
+
+    @objc func quit(sender: NSMenuItem) {
+        NSApplication.shared.terminate(sender)
     }
 }
