@@ -2,11 +2,12 @@ import Cocoa
 import LaunchAtLogin
 import os.log
 import SwiftUI
+import ShellOut
 
-// TODO: Listen when color scheme changes
 // TODO: Allow to add script to execute when color scheme is changed
 // TODO: Improve logotype
 // TODO: Add localization
+// TODO: Add sparkle for updates if it can't be released on App Store https://sparkle-project.org
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -45,8 +46,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return menu
     }()
 
+    var themeCallbackManager = ThemeCallbackManager(userDefaults: .standard)
+
     func applicationDidFinishLaunching(_: Notification) {
         statusItem = makeStatusItem()
+        themeCallbackManager.start()
+
+        themeCallbackManager.add { theme in
+            // TODO: This does not work with sandboxing, it is currently turned of for the POC.
+            let output = try! shellOut(to: "./toggle-colorscheme", arguments: [theme.colorScheme.description], at: "/Users/ross/Dropbox/mymac/dotfiles/bin")
+            os_log("Callback output: %@", output)
+        }
     }
 
     func applicationWillTerminate(_: Notification) {

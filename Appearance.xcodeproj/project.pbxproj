@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		915EB19723DE30D400207556 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; };
 		915EB19823DE30D400207556 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		91689EFB23E096AB006056DC /* CombineTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91689EFA23E096AB006056DC /* CombineTimer.swift */; };
+		91689EFF23E0977A006056DC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91689EFE23E0977A006056DC /* Theme.swift */; };
+		91689F0223E0A514006056DC /* ShellOut in Frameworks */ = {isa = PBXBuildFile; productRef = 91689F0123E0A514006056DC /* ShellOut */; };
 		917C25A123DE34330096E6E9 /* LaunchAtLogin.feature in Resources */ = {isa = PBXBuildFile; fileRef = 917C25A023DE34330096E6E9 /* LaunchAtLogin.feature */; };
 		91AF302F23DCC16C00D394BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF302E23DCC16C00D394BA /* AppDelegate.swift */; };
 		91AF303123DCC16C00D394BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF303023DCC16C00D394BA /* ContentView.swift */; };
@@ -52,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		915EB19623DE30D400207556 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
+		91689EFA23E096AB006056DC /* CombineTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTimer.swift; sourceTree = "<group>"; };
+		91689EFE23E0977A006056DC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		917C25A023DE34330096E6E9 /* LaunchAtLogin.feature */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LaunchAtLogin.feature; sourceTree = "<group>"; };
 		91AF302B23DCC16C00D394BA /* Appearance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appearance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AF302E23DCC16C00D394BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91689F0223E0A514006056DC /* ShellOut in Frameworks */,
 				915EB19723DE30D400207556 /* LaunchAtLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				91AF302E23DCC16C00D394BA /* AppDelegate.swift */,
+				91689EFE23E0977A006056DC /* Theme.swift */,
+				91689EFA23E096AB006056DC /* CombineTimer.swift */,
 				91AF303023DCC16C00D394BA /* ContentView.swift */,
 				91AF303223DCC16F00D394BA /* Assets.xcassets */,
 				91AF303723DCC16F00D394BA /* Main.storyboard */,
@@ -192,6 +200,9 @@
 			dependencies = (
 			);
 			name = Appearance;
+			packageProductDependencies = (
+				91689F0123E0A514006056DC /* ShellOut */,
+			);
 			productName = Appearance;
 			productReference = 91AF302B23DCC16C00D394BA /* Appearance.app */;
 			productType = "com.apple.product-type.application";
@@ -264,6 +275,9 @@
 				Base,
 			);
 			mainGroup = 91AF302223DCC16C00D394BA;
+			packageReferences = (
+				91689F0023E0A514006056DC /* XCRemoteSwiftPackageReference "ShellOut" */,
+			);
 			productRefGroup = 91AF302C23DCC16C00D394BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -345,8 +359,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91689EFF23E0977A006056DC /* Theme.swift in Sources */,
 				91AF303123DCC16C00D394BA /* ContentView.swift in Sources */,
 				91AF302F23DCC16C00D394BA /* AppDelegate.swift in Sources */,
+				91689EFB23E096AB006056DC /* CombineTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +700,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		91689F0023E0A514006056DC /* XCRemoteSwiftPackageReference "ShellOut" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/ShellOut.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		91689F0123E0A514006056DC /* ShellOut */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91689F0023E0A514006056DC /* XCRemoteSwiftPackageReference "ShellOut" */;
+			productName = ShellOut;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91AF302323DCC16C00D394BA /* Project object */;
 }
