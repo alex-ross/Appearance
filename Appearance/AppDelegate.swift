@@ -1,33 +1,38 @@
 import Cocoa
 import LaunchAtLogin
 import os.log
-import SwiftUI
 import ShellOut
 
 // TODO: Allow to add script to execute when color scheme is changed
 // TODO: Improve logotype
-// TODO: Add localization
 // TODO: Add sparkle for updates if it can't be released on App Store https://sparkle-project.org
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var window: NSWindow?
+    var preferenceWindowController: PreferenceWindowController?
+
     var statusItem: NSStatusItem?
     lazy var appMenu: NSMenu = {
         let toggleColorSceme = NSMenuItem(
-            title: "Toggle color scheme",
+            title: NSLocalizedString("Toggle color scheme", comment: "Menu item"),
             action: #selector(toggleDarkMode),
             keyEquivalent: ""
         )
 
         let toggleLaunchAtLogin = NSMenuItem(
-            title: "Launch at login",
+            title: NSLocalizedString("Launch at login", comment: "Menu item"),
             action: #selector(launchAtLogin(sender:)),
             keyEquivalent: ""
         )
 
+        let preferences = NSMenuItem(
+            title: NSLocalizedString("Preferences...", comment: "Menu item"),
+            action: #selector(openPreferences),
+            keyEquivalent: ""
+        )
+
         let terminator = NSMenuItem(
-            title: "Quit",
+            title: NSLocalizedString("Quit", comment: "Menu item"),
             action: #selector(quit(sender:)),
             keyEquivalent: ""
         )
@@ -36,10 +41,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             toggleLaunchAtLogin.state = .on
         }
 
-        let menu = NSMenu(title: "Appearance")
+        let menu = NSMenu(title: NSLocalizedString("Appearance",
+                                                   comment: "Menu title"))
         menu.addItem(toggleColorSceme)
         menu.addItem(.separator())
         menu.addItem(toggleLaunchAtLogin)
+        menu.addItem(preferences)
         menu.addItem(.separator())
         menu.addItem(terminator)
 
@@ -83,20 +90,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return statusItem
     }
 
-    func makeWindow() {
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+    @objc func openPreferences() {
+        if preferenceWindowController == nil {
+            preferenceWindowController = PreferenceWindowController { controller in
+                self.preferenceWindowController = nil
+            }
+        }
 
-        // Create the window and set the content view.
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false
-        )
-        window?.center()
-        window?.setFrameAutosaveName("Main Window")
-        window?.contentView = NSHostingView(rootView: contentView)
-        window?.makeKeyAndOrderFront(nil)
+        preferenceWindowController?.window?.makeKeyAndOrderFront(self)
+        NSApplication.shared.activate(ignoringOtherApps: true)
     }
 
     @objc func displayMenu() {
