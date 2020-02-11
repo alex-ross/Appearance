@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         themeCallbackManager.add { theme in
             // TODO: This does not work with sandboxing, it is currently turned of for the POC.
-            let output = try! shellOut(to: "./toggle-colorscheme", arguments: [theme.colorScheme.description], at: "/Users/ross/Dropbox/mymac/dotfiles/bin")
+            let output = try! shellOut(to: "./toggle-colorscheme", arguments: [theme.colorScheme.description], at: "/Users/ross/mymac/dotfiles/bin")
             os_log("Callback output: %@", output)
         }
     }
