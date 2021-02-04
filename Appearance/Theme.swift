@@ -19,7 +19,11 @@ extension ColorScheme {
     static func decode(
         userDefaults: UserDefaults = UserDefaults.standard
     ) -> ColorScheme {
-        if userDefaults.string(forKey: "AppleInterfaceStyle") == "Dark" {
+        decode(name: userDefaults.string(forKey: "AppleInterfaceStyle") ?? "")
+    }
+
+    static func decode(name: String) -> ColorScheme {
+        if name == "Dark" {
             return .dark
         }
 
@@ -41,7 +45,7 @@ extension ColorScheme {
 class ThemeCallbackManager {
     private let userDefaults: UserDefaults
     private var callbacks = [(Theme) -> Void]()
-    private var cancellables = [AnyCancellable]()
+    private var observer: NSKeyValueObservation?
 
     var theme: Theme
 
@@ -50,20 +54,33 @@ class ThemeCallbackManager {
         self.theme = Theme(colorScheme: .decode(userDefaults: userDefaults))
     }
 
+    deinit {
+        observer?.invalidate()
+    }
+
     func add(callback: @escaping (Theme) -> Void) {
         callbacks.append(callback)
     }
 
-    func start() {
-        cancellables.append(CombineTimer(interval: 1).publisher.sink { now in
-            self.theme.colorScheme = .decode()
-        })
+    private func executeCallbacks() {
+        os_log("Will execute callbacks, colorscheme is %@", theme.colorScheme.description)
+        for callback in callbacks {
+            callback(theme)
+        }
+        os_log("Did execute callbacks")
+    }
 
-        cancellables.append(theme.objectDidChange.sink { theme in
-            os_log("Current colorscheme is %@", theme.colorScheme.description)
-            for callback in self.callbacks {
-                callback(theme)
-            }
-        })
+    func start() {
+        observer?.invalidate()
+        observer = NSApp.observe(\.effectiveAppearance, options: [.new, .old, .initial, .prior]) { [weak self] app, change in
+            guard let self = self else { return }
+
+            let newColorScheme = ColorScheme.decode()
+
+            guard self.theme.colorScheme != newColorScheme else { return }
+
+            self.theme.colorScheme = .decode()
+            self.executeCallbacks()
+        }
     }
 }

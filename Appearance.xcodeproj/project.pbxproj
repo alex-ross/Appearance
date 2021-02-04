@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		915EB19723DE30D400207556 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; };
 		915EB19823DE30D400207556 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		91689EFB23E096AB006056DC /* CombineTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91689EFA23E096AB006056DC /* CombineTimer.swift */; };
 		91689EFF23E0977A006056DC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91689EFE23E0977A006056DC /* Theme.swift */; };
 		91689F0223E0A514006056DC /* ShellOut in Frameworks */ = {isa = PBXBuildFile; productRef = 91689F0123E0A514006056DC /* ShellOut */; };
 		91689F0423E1FE12006056DC /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91689F0323E1FE12006056DC /* PreferenceWindowController.swift */; };
@@ -56,7 +55,6 @@
 
 /* Begin PBXFileReference section */
 		915EB19623DE30D400207556 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
-		91689EFA23E096AB006056DC /* CombineTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTimer.swift; sourceTree = "<group>"; };
 		91689EFE23E0977A006056DC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		91689F0323E1FE12006056DC /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		917C25A023DE34330096E6E9 /* LaunchAtLogin.feature */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LaunchAtLogin.feature; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 				91689F0323E1FE12006056DC /* PreferenceWindowController.swift */,
 				91AF302E23DCC16C00D394BA /* AppDelegate.swift */,
 				91689EFE23E0977A006056DC /* Theme.swift */,
-				91689EFA23E096AB006056DC /* CombineTimer.swift */,
 				91AF303023DCC16C00D394BA /* PreferencesView.swift */,
 				91AF303223DCC16F00D394BA /* Assets.xcassets */,
 				91AF303723DCC16F00D394BA /* Main.storyboard */,
@@ -366,7 +363,6 @@
 				91689EFF23E0977A006056DC /* Theme.swift in Sources */,
 				91AF303123DCC16C00D394BA /* PreferencesView.swift in Sources */,
 				91AF302F23DCC16C00D394BA /* AppDelegate.swift in Sources */,
-				91689EFB23E096AB006056DC /* CombineTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Appearance/Appearance.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 3;
@@ -561,7 +557,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Appearance/Appearance.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 3;
