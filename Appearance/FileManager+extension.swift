@@ -14,7 +14,7 @@ extension FileManager {
     var configDirectory: URL {
         return homeDirectoryForCurrentUser
             .appendingPathComponent(".config")
-            .appendingPathComponent("apperance")
+            .appendingPathComponent("appearance")
     }
 
     var hooksDirectory: URL {
