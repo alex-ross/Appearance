@@ -52,15 +52,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return menu
     }()
 
-    var themeCallbackManager = ThemeCallbackManager(userDefaults: .standard)
+    var hooksController = HooksController(userDefaults: .standard)
 
     func applicationDidFinishLaunching(_: Notification) {
         FileManager.default.prepareConfigDirectory()
 
         statusItem = makeStatusItem()
-        themeCallbackManager.start()
+        hooksController.start()
 
-        themeCallbackManager.add { [weak self] theme in
+        hooksController.add { [weak self] theme in
             let enumerator = FileManager.default.enumerator(atPath: FileManager.default.hooksDirectory.relativePath)
             while let element = enumerator?.nextObject() as? String {
                 os_log("Iterating over file %@", element.debugDescription)
