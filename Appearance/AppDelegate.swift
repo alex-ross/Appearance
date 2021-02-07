@@ -56,13 +56,47 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var themeCallbackManager = ThemeCallbackManager(userDefaults: .standard)
 
     func applicationDidFinishLaunching(_: Notification) {
+        FileManager.default.prepareConfigDirectory()
+
         statusItem = makeStatusItem()
         themeCallbackManager.start()
 
-        themeCallbackManager.add { theme in
-            // TODO: This does not work with sandboxing, it is currently turned of for the POC.
-            let output = try! shellOut(to: "./toggle-colorscheme", arguments: [theme.colorScheme.description], at: "/Users/ross/mymac/dotfiles/bin")
-            os_log("Callback output: %@", output)
+        themeCallbackManager.add { [weak self] theme in
+            let enumerator = FileManager.default.enumerator(atPath: FileManager.default.callbackScriptDirectory.relativePath)
+            while let element = enumerator?.nextObject() as? String {
+                os_log("Iterating over file %@", element.debugDescription)
+                if let fType = enumerator?.fileAttributes?[FileAttributeKey.type] as? FileAttributeType{
+                    switch fType {
+                    case .typeRegular:
+                        os_log("Will execute file \"%@\" with arguments [\"%@\"]", element, theme.colorScheme.description)
+                        defer { os_log("Did execute file: %@", element) }
+
+                        do {
+                            let output = try shellOut(to: "./\(element)", arguments: [theme.colorScheme.description], at: FileManager.default.callbackScriptDirectory.relativePath)
+                            os_log("%@", output)
+                        } catch {
+                            os_log("error: %@", error.localizedDescription)
+                            self?.alert(title: "Error executing: \(element)", body: error.localizedDescription)
+                        }
+                    case .typeDirectory:
+                        os_log("warning: %@ is a directory, will be skipped", element)
+                    default:
+                        os_log("warning: Unknown file type for %@", element)
+                    }
+                }
+            }
+        }
+    }
+
+    func alert(title: String, body: String) {
+        DispatchQueue.main.async {
+            let alert = NSAlert()
+            alert.messageText = title
+            alert.informativeText = body
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "OK")
+            alert.addButton(withTitle: "Cancel")
+            alert.runModal()
         }
     }
 
