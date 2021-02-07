@@ -17,8 +17,8 @@ extension FileManager {
             .appendingPathComponent("apperance")
     }
 
-    var callbackScriptDirectory: URL {
-        return configDirectory.appendingPathComponent("scripts")
+    var hooksDirectory: URL {
+        return configDirectory.appendingPathComponent("hooks")
     }
 
     /// Prepares the file system for the application by creating needed files and directories
@@ -26,7 +26,7 @@ extension FileManager {
         os_log("Will prepare config directory")
         defer { os_log("Did prepare config directory") }
 
-        let path = callbackScriptDirectory
+        let path = hooksDirectory
         if !FileManager.default.fileExists(atPath: path.relativePath) {
             do {
                 try FileManager.default.createDirectory(atPath: path.relativePath, withIntermediateDirectories: true, attributes: nil)

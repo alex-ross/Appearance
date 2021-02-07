@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         themeCallbackManager.start()
 
         themeCallbackManager.add { [weak self] theme in
-            let enumerator = FileManager.default.enumerator(atPath: FileManager.default.callbackScriptDirectory.relativePath)
+            let enumerator = FileManager.default.enumerator(atPath: FileManager.default.hooksDirectory.relativePath)
             while let element = enumerator?.nextObject() as? String {
                 os_log("Iterating over file %@", element.debugDescription)
                 if let fType = enumerator?.fileAttributes?[FileAttributeKey.type] as? FileAttributeType{
@@ -73,7 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         do {
                             let output = try shellOut(
                                 to: .hook(filename: element, theme: theme),
-                                at: FileManager.default.callbackScriptDirectory.relativePath
+                                at: FileManager.default.hooksDirectory.relativePath
                             )
                             os_log("%@", output)
                         } catch {
