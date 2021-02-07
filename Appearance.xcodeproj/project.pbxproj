@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910290E125D010710067320D /* ShellOutCommand+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910290E025D010710067320D /* ShellOutCommand+extension.swift */; };
 		915EB19723DE30D400207556 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; };
 		915EB19823DE30D400207556 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91689EFF23E0977A006056DC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91689EFE23E0977A006056DC /* Theme.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		910290E025D010710067320D /* ShellOutCommand+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShellOutCommand+extension.swift"; sourceTree = "<group>"; };
 		915EB19623DE30D400207556 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 		91689EFE23E0977A006056DC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		91689F0323E1FE12006056DC /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				91689F0323E1FE12006056DC /* PreferenceWindowController.swift */,
 				91AF302E23DCC16C00D394BA /* AppDelegate.swift */,
+				910290E025D010710067320D /* ShellOutCommand+extension.swift */,
 				91C208F325CC4CA6002D021A /* FileManager+extension.swift */,
 				91689EFE23E0977A006056DC /* Theme.swift */,
 				91AF303023DCC16C00D394BA /* PreferencesView.swift */,
@@ -363,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91689F0423E1FE12006056DC /* PreferenceWindowController.swift in Sources */,
+				910290E125D010710067320D /* ShellOutCommand+extension.swift in Sources */,
 				91C208F425CC4CA6002D021A /* FileManager+extension.swift in Sources */,
 				91689EFF23E0977A006056DC /* Theme.swift in Sources */,
 				91AF303123DCC16C00D394BA /* PreferencesView.swift in Sources */,

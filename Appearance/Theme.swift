@@ -72,15 +72,14 @@ class ThemeCallbackManager {
 
     func start() {
         observer?.invalidate()
-        observer = NSApp.observe(\.effectiveAppearance, options: [.new, .old, .initial, .prior]) { [weak self] app, change in
+        observer = NSApp.observe(\.effectiveAppearance) { [weak self] app, change in
             guard let self = self else { return }
 
             let newColorScheme = ColorScheme.decode()
-
             guard self.theme.colorScheme != newColorScheme else { return }
-
             self.theme.colorScheme = .decode()
-            self.executeCallbacks()
+
+            DispatchQueue.global().async(execute: self.executeCallbacks)
         }
     }
 }

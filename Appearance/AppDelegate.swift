@@ -3,7 +3,6 @@ import LaunchAtLogin
 import os.log
 import ShellOut
 
-// TODO: Allow to add script to execute when color scheme is changed
 // TODO: Improve logotype
 // TODO: Add sparkle for updates if it can't be released on App Store https://sparkle-project.org
 
@@ -72,7 +71,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         defer { os_log("Did execute file: %@", element) }
 
                         do {
-                            let output = try shellOut(to: "./\(element)", arguments: [theme.colorScheme.description], at: FileManager.default.callbackScriptDirectory.relativePath)
+                            let output = try shellOut(
+                                to: .hook(filename: element, theme: theme),
+                                at: FileManager.default.callbackScriptDirectory.relativePath
+                            )
                             os_log("%@", output)
                         } catch {
                             os_log("error: %@", error.localizedDescription)
