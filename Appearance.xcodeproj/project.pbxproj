@@ -10,8 +10,6 @@
 		910290E125D010710067320D /* ShellOutCommand+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910290E025D010710067320D /* ShellOutCommand+extension.swift */; };
 		910290E925D04B470067320D /* HooksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910290E825D04B470067320D /* HooksController.swift */; };
 		910290ED25D04C100067320D /* ColorScheme+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910290EC25D04C100067320D /* ColorScheme+extension.swift */; };
-		915EB19723DE30D400207556 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; };
-		915EB19823DE30D400207556 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 915EB19623DE30D400207556 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91689EFF23E0977A006056DC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91689EFE23E0977A006056DC /* Theme.swift */; };
 		91689F0223E0A514006056DC /* ShellOut in Frameworks */ = {isa = PBXBuildFile; productRef = 91689F0123E0A514006056DC /* ShellOut */; };
 		91689F0423E1FE12006056DC /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91689F0323E1FE12006056DC /* PreferenceWindowController.swift */; };
@@ -23,6 +21,7 @@
 		91AF303923DCC16F00D394BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91AF303723DCC16F00D394BA /* Main.storyboard */; };
 		91AF304523DCC17000D394BA /* AppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF304423DCC17000D394BA /* AppearanceTests.swift */; };
 		91AF305023DCC17000D394BA /* AppearanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF304F23DCC17000D394BA /* AppearanceUITests.swift */; };
+		91AFF5B925DB151900E1FBC5 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 91AFF5B825DB151900E1FBC5 /* LaunchAtLogin */; };
 		91C208F425CC4CA6002D021A /* FileManager+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C208F325CC4CA6002D021A /* FileManager+extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,25 +42,10 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		915EB19923DE30D400207556 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				915EB19823DE30D400207556 /* LaunchAtLogin.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		910290E025D010710067320D /* ShellOutCommand+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShellOutCommand+extension.swift"; sourceTree = "<group>"; };
 		910290E825D04B470067320D /* HooksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HooksController.swift; sourceTree = "<group>"; };
 		910290EC25D04C100067320D /* ColorScheme+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorScheme+extension.swift"; sourceTree = "<group>"; };
-		915EB19623DE30D400207556 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 		91689EFE23E0977A006056DC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		91689F0323E1FE12006056DC /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		917C25A023DE34330096E6E9 /* LaunchAtLogin.feature */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LaunchAtLogin.feature; sourceTree = "<group>"; };
@@ -87,8 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91AFF5B925DB151900E1FBC5 /* LaunchAtLogin in Frameworks */,
 				91689F0223E0A514006056DC /* ShellOut in Frameworks */,
-				915EB19723DE30D400207556 /* LaunchAtLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +96,6 @@
 		915EB19523DE30D400207556 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				915EB19623DE30D400207556 /* LaunchAtLogin.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,8 +186,6 @@
 				91AF302723DCC16C00D394BA /* Sources */,
 				91AF302823DCC16C00D394BA /* Frameworks */,
 				91AF302923DCC16C00D394BA /* Resources */,
-				915EB19923DE30D400207556 /* Embed Frameworks */,
-				915EB19A23DE30F200207556 /* ShellScript */,
 				915EB19B23DE31AC00207556 /* ShellScript */,
 			);
 			buildRules = (
@@ -214,6 +195,7 @@
 			name = Appearance;
 			packageProductDependencies = (
 				91689F0123E0A514006056DC /* ShellOut */,
+				91AFF5B825DB151900E1FBC5 /* LaunchAtLogin */,
 			);
 			productName = Appearance;
 			productReference = 91AF302B23DCC16C00D394BA /* Appearance.app */;
@@ -289,6 +271,7 @@
 			mainGroup = 91AF302223DCC16C00D394BA;
 			packageReferences = (
 				91689F0023E0A514006056DC /* XCRemoteSwiftPackageReference "ShellOut" */,
+				91AFF5B725DB151900E1FBC5 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
 			productRefGroup = 91AF302C23DCC16C00D394BA /* Products */;
 			projectDirPath = "";
@@ -330,23 +313,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		915EB19A23DE30F200207556 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		915EB19B23DE31AC00207556 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,7 +328,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -548,7 +514,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Appearance/Preview Content\"";
 				DEVELOPMENT_TEAM = 7RS8ZRKD6A;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -563,7 +529,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = se.aross.Appearance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -578,7 +544,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Appearance/Preview Content\"";
 				DEVELOPMENT_TEAM = 7RS8ZRKD6A;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -593,7 +559,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = se.aross.Appearance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -734,6 +700,14 @@
 				minimumVersion = 2.3.0;
 			};
 		};
+		91AFF5B725DB151900E1FBC5 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -741,6 +715,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91689F0023E0A514006056DC /* XCRemoteSwiftPackageReference "ShellOut" */;
 			productName = ShellOut;
+		};
+		91AFF5B825DB151900E1FBC5 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91AFF5B725DB151900E1FBC5 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
