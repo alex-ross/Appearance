@@ -14,6 +14,7 @@
 		91689F0223E0A514006056DC /* ShellOut in Frameworks */ = {isa = PBXBuildFile; productRef = 91689F0123E0A514006056DC /* ShellOut */; };
 		91689F0423E1FE12006056DC /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91689F0323E1FE12006056DC /* PreferenceWindowController.swift */; };
 		917C25A123DE34330096E6E9 /* LaunchAtLogin.feature in Resources */ = {isa = PBXBuildFile; fileRef = 917C25A023DE34330096E6E9 /* LaunchAtLogin.feature */; };
+		91A21EF225DB1D0300714199 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 91A21EF125DB1D0300714199 /* README.md */; };
 		91AF302F23DCC16C00D394BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF302E23DCC16C00D394BA /* AppDelegate.swift */; };
 		91AF303123DCC16C00D394BA /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AF303023DCC16C00D394BA /* PreferencesView.swift */; };
 		91AF303323DCC16F00D394BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AF303223DCC16F00D394BA /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		91689EFE23E0977A006056DC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		91689F0323E1FE12006056DC /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		917C25A023DE34330096E6E9 /* LaunchAtLogin.feature */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LaunchAtLogin.feature; sourceTree = "<group>"; };
+		91A21EF125DB1D0300714199 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		91AF302B23DCC16C00D394BA /* Appearance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appearance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AF302E23DCC16C00D394BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91AF303023DCC16C00D394BA /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		91AF302223DCC16C00D394BA = {
 			isa = PBXGroup;
 			children = (
+				91A21EF125DB1D0300714199 /* README.md */,
 				917C259F23DE34140096E6E9 /* Features */,
 				91AF302D23DCC16C00D394BA /* Appearance */,
 				91AF304323DCC17000D394BA /* AppearanceTests */,
@@ -291,6 +294,7 @@
 			files = (
 				91AF303923DCC16F00D394BA /* Main.storyboard in Resources */,
 				917C25A123DE34330096E6E9 /* LaunchAtLogin.feature in Resources */,
+				91A21EF225DB1D0300714199 /* README.md in Resources */,
 				91AF303623DCC16F00D394BA /* Preview Assets.xcassets in Resources */,
 				91AF303323DCC16F00D394BA /* Assets.xcassets in Resources */,
 			);
@@ -514,7 +518,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Appearance/Preview Content\"";
 				DEVELOPMENT_TEAM = 7RS8ZRKD6A;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -529,7 +533,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = se.aross.Appearance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -544,7 +548,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Appearance/Preview Content\"";
 				DEVELOPMENT_TEAM = 7RS8ZRKD6A;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -559,7 +563,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = se.aross.Appearance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
