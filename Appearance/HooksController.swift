@@ -40,14 +40,22 @@ class HooksController {
 
     func start() {
         observer?.invalidate()
+
+        // Do this once on launche to ensure correct color scheme is submitted
+        // to hooks if computer has been turned off.
+        setColorSchemeAndEnqueueHooks()
+
         observer = NSApp.observe(\.effectiveAppearance) { [weak self] app, change in
             guard let self = self else { return }
-
-            let newColorScheme = ColorScheme.decode()
-            guard self.theme.colorScheme != newColorScheme else { return }
-            self.theme.colorScheme = .decode()
-
-            DispatchQueue.global().async(execute: self.executeHooks)
+            self.setColorSchemeAndEnqueueHooks()
         }
+    }
+
+    private func setColorSchemeAndEnqueueHooks() {
+        let newColorScheme = ColorScheme.decode()
+        guard theme.colorScheme != newColorScheme else { return }
+        theme.colorScheme = .decode()
+
+        DispatchQueue.global().async(execute: executeHooks)
     }
 }
