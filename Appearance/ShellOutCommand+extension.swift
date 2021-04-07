@@ -12,9 +12,7 @@ import ShellOut
 extension ShellOutCommand {
     static func hook(filename: String, theme: Theme) -> ShellOutCommand {
         let command = [
-            "/bin/bash",
-            "-C",
-            "\"\(filename)\"",
+            "./\(filename)",
             theme.colorScheme.description
         ].joined(separator: " ")
 
