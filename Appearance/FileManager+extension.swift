@@ -21,6 +21,10 @@ extension FileManager {
         return configDirectory.appendingPathComponent("hooks")
     }
 
+    var currentColorschemeFile: URL {
+        return configDirectory.appendingPathComponent("current")
+    }
+
     /// Prepares the file system for the application by creating needed files and directories
     func prepareConfigDirectory() {
         os_log("Will prepare config directory")
