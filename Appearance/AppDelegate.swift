@@ -58,9 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         FileManager.default.prepareConfigDirectory()
 
         statusItem = makeStatusItem()
-        hooksController.start()
-
-        hooksController.add { [weak self] theme in
+        hooksController.start { [weak self] theme in
             os_log("Will update current colorscheme file, colorscheme is %@",
                    theme.colorScheme.description)
             let filename = FileManager.default.currentColorschemeFile.absoluteURL

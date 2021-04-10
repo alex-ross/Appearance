@@ -38,12 +38,16 @@ class HooksController {
         os_log("Did execute hooks")
     }
 
-    func start() {
+    func start(hook: @escaping (Theme) -> Void) {
         observer?.invalidate()
 
         // Do this once on launche to ensure correct color scheme is submitted
         // to hooks if computer has been turned off.
         setColorSchemeAndEnqueueHooks()
+
+        hook(theme)
+
+        add(hook: hook)
 
         observer = NSApp.observe(\.effectiveAppearance) { [weak self] app, change in
             guard let self = self else { return }
