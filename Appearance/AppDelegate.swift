@@ -58,7 +58,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         FileManager.default.prepareConfigDirectory()
 
         statusItem = makeStatusItem()
-        hooksController.start()
 
         hooksController.add { [weak self] theme in
             os_log("Will update current colorscheme file, colorscheme is %@",
@@ -101,6 +100,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+
+        hooksController.start()
+        hooksController.executeHooks()
     }
 
     func alert(title: String, body: String) {
