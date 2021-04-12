@@ -102,6 +102,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         hooksController.start()
+        hooksController.executeHooks()
     }
 
     func alert(title: String, body: String) {

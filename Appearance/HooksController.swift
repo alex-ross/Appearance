@@ -30,7 +30,7 @@ class HooksController {
         hooks.append(hook)
     }
 
-    private func executeHooks() {
+    func executeHooks() {
         os_log("Will execute hooks, colorscheme is %@", theme.colorScheme.description)
         for hook in hooks {
             hook(theme)
