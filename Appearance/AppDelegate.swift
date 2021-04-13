@@ -58,7 +58,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         FileManager.default.prepareConfigDirectory()
 
         statusItem = makeStatusItem()
-        hooksController.start()
+
+        hooksController.add { [weak self] theme in
+            os_log("Will update current colorscheme file, colorscheme is %@",
+                   theme.colorScheme.description)
+            let filename = FileManager.default.currentColorschemeFile.absoluteURL
+            do {
+                try theme.colorScheme.description.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                os_log("error: %@", error.localizedDescription)
+                self?.alert(title: "Error updating current colorscheme file: \(filename)", body: error.localizedDescription)
+            }
+            os_log("Did update current colorscheme file")
+        }
 
         hooksController.add { [weak self] theme in
             let enumerator = FileManager.default.enumerator(atPath: FileManager.default.hooksDirectory.relativePath)
@@ -88,6 +100,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+
+        hooksController.start()
+        hooksController.executeHooks()
     }
 
     func alert(title: String, body: String) {

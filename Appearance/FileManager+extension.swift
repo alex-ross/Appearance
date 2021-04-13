@@ -12,13 +12,25 @@ import ShellOut
 
 extension FileManager {
     var configDirectory: URL {
-        return homeDirectoryForCurrentUser
-            .appendingPathComponent(".config")
-            .appendingPathComponent("appearance")
+        guard let path = ProcessInfo.processInfo.environment["APPEARANCE_CONFIG_PATH"] else {
+            return homeDirectoryForCurrentUser
+                .appendingPathComponent(".config")
+                .appendingPathComponent("appearance")
+        }
+
+        guard let url = URL(string: path) else {
+            fatalError("APPEARANCE_CONFIG_PATH didn't conform to valid URL")
+        }
+
+        return url
     }
 
     var hooksDirectory: URL {
         return configDirectory.appendingPathComponent("hooks")
+    }
+
+    var currentColorschemeFile: URL {
+        return configDirectory.appendingPathComponent("current")
     }
 
     /// Prepares the file system for the application by creating needed files and directories
